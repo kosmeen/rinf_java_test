@@ -23,6 +23,7 @@
 		<swagger-ui.version>3.17.0</swagger-ui.version>
 		<jersey.version>2.27</jersey.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jetty.version>9.0.6.v20130930</jetty.version>
 	</properties>
 
 	<build>
@@ -199,6 +200,19 @@
 			<scope>provided</scope>
 		</dependency>
 		<!-- End Webapp runner -->
+		
+		<dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>${jetty.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>${jetty.version}</version>
+            <scope>provided</scope>
+        </dependency>
 	</dependencies>
 
 </project>
