@@ -37,6 +37,7 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
+
 				</configuration>
 			</plugin>
 			<plugin>
@@ -79,6 +80,21 @@
 						</configuration>
 
 					</execution>
+
+					<execution>
+						<id>3</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+
+							<includeArtifactIds>jetty-webapp</includeArtifactIds>
+
+							<outputDirectory>${project.build.directory}/webapp</outputDirectory>
+						</configuration>
+
+					</execution>
 				</executions>
 			</plugin>
 
@@ -98,6 +114,8 @@
 							<targetPath>swagger-ui</targetPath>
 						</resource>
 					</webResources>
+
+					
 				</configuration>
 			</plugin>
 			<plugin>
@@ -200,19 +218,17 @@
 			<scope>provided</scope>
 		</dependency>
 		<!-- End Webapp runner -->
-		
+
 		<dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-servlet</artifactId>
-            <version>${jetty.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-webapp</artifactId>
-            <version>${jetty.version}</version>
-            <scope>provided</scope>
-        </dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlet</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
 	</dependencies>
 
 </project>
