@@ -1,1 +1,1 @@
-web: java -jar target/rinf.war
+web: java -jar target/webapp/webapp-runner-7.0.22.jar --port 80 target/rinf.war
