@@ -44,6 +44,7 @@
 				<version>${maven-dependency-plugin.version}</version>
 				<executions>
 					<execution>
+						<id>1</id>
 						<phase>prepare-package</phase>
 						<goals>
 							<goal>unpack</goal>
@@ -55,12 +56,32 @@
 									<artifactId>swagger-ui</artifactId>
 									<version>${swagger-ui.version}</version>
 								</artifactItem>
+
+
 							</artifactItems>
 							<outputDirectory>${project.build.directory}/swagger-ui</outputDirectory>
 						</configuration>
+
+					</execution>
+
+					<execution>
+						<id>2</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+
+							<includeArtifactIds>webapp-runner</includeArtifactIds>
+
+							<outputDirectory>${project.build.directory}/webapp</outputDirectory>
+						</configuration>
+
 					</execution>
 				</executions>
 			</plugin>
+
+
 			<plugin>
 				<!-- Add Swagger UI resources to the war file. -->
 				<groupId>org.apache.maven.plugins</groupId>
@@ -101,6 +122,8 @@
 					</replacements>
 				</configuration>
 			</plugin>
+
+
 		</plugins>
 	</build>
 
@@ -168,6 +191,14 @@
 
 		<!-- End Swagger -->
 
+		<!-- Webapp runner -->
+		<dependency>
+			<groupId>com.github.jsimone</groupId>
+			<artifactId>webapp-runner</artifactId>
+			<version>7.0.22</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- End Webapp runner -->
 	</dependencies>
 
 </project>
